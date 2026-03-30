@@ -25,7 +25,9 @@ export * from "./components/hover-card";
 export * from "./components/input";
 export * from "./components/item";
 export * from "./components/label";
-export * from "./components/mdx-tabs";
+// mdx-tabs exports Tabs under a different semantic (MDX wrapper, not primitive root).
+// Import it directly: import { Tabs, Tab } from "@kleffio/ui/mdx-tabs"
+export { Tab } from "./components/mdx-tabs";
 export * from "./components/menubar";
 export * from "./components/navigation-menu";
 export * from "./components/pagination";
