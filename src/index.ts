@@ -1,0 +1,45 @@
+// @kleffio/ui — Kleff shared component library
+// Single source of truth for UI components used across panel, www, docs, and plugins.
+
+export * from "./components/accordion";
+export * from "./components/alert-dialog";
+export * from "./components/alert";
+export * from "./components/avatar";
+export * from "./components/badge";
+export * from "./components/button-variants";
+export * from "./components/button-group";
+export * from "./components/button";
+export * from "./components/card";
+export * from "./components/carousel";
+export * from "./components/chart";
+export * from "./components/checkbox";
+export * from "./components/collapsible";
+export * from "./components/context-menu";
+export * from "./components/drawer";
+export * from "./components/dropdown-menu";
+export * from "./components/empty";
+export * from "./components/field";
+export * from "./components/hover-card";
+export * from "./components/input";
+export * from "./components/item";
+export * from "./components/label";
+export * from "./components/menubar";
+export * from "./components/navigation-menu";
+export * from "./components/pagination";
+export * from "./components/popover";
+export * from "./components/progress";
+export * from "./components/radio-group";
+export * from "./components/scroll-area";
+export * from "./components/select";
+export * from "./components/separator";
+export * from "./components/sheet";
+export * from "./components/skeleton";
+export * from "./components/slider";
+export * from "./components/sonner";
+export * from "./components/switch";
+export * from "./components/table";
+export * from "./components/tabs";
+export * from "./components/textarea";
+export * from "./components/toggle";
+export * from "./components/tooltip";
+export { cn } from "./utils";
