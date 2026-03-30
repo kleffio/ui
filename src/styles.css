@@ -1,5 +1,5 @@
-@import "tailwindcss";
-@import "tw-animate-css";
+/* Ensure consumers generate utilities used inside shared UI components. */
+@source "./components/**/*.{ts,tsx}";
 
 :root {
   --radius: 0.625rem;

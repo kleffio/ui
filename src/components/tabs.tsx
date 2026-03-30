@@ -42,4 +42,6 @@ function TabsContent({ className, ...props }: React.ComponentProps<typeof TabsPr
   );
 }
 
-export { Tabs, TabsList, TabsTrigger, TabsContent };
+const TabsRoot = Tabs;
+
+export { Tabs, TabsRoot, TabsList, TabsTrigger, TabsContent };
