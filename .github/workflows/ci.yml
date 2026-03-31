@@ -25,12 +25,12 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Verify exports
-        run: node --input-type=module <<'EOF'
-          import { readFileSync } from "fs";
+        run: |
+          node --input-type=module - <<'SCRIPT'
+          import { readFileSync, existsSync } from "fs";
           const pkg = JSON.parse(readFileSync("package.json", "utf8"));
-          const exports = Object.values(pkg.exports ?? {});
-          const { existsSync } = await import("fs");
-          const missing = exports.filter(p => !existsSync(p.replace(/^\.\//, "")));
+          const targets = Object.values(pkg.exports ?? {});
+          const missing = targets.filter(p => !existsSync(p.replace(/^\.\//, "")));
           if (missing.length) { console.error("Missing export targets:", missing); process.exit(1); }
-          console.log(`All ${exports.length} export targets present.`);
-        EOF
+          console.log(`All ${targets.length} export targets present.`);
+          SCRIPT
