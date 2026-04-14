@@ -49,6 +49,7 @@
     "./skeleton": "./src/components/skeleton.tsx",
     "./slider": "./src/components/slider.tsx",
     "./sonner": "./src/components/sonner.tsx",
+    "./spinner": "./src/components/spinner.tsx",
     "./switch": "./src/components/switch.tsx",
     "./table": "./src/components/table.tsx",
     "./tabs": "./src/components/tabs.tsx",

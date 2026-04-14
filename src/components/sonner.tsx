@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Toaster as Sonner, type ToasterProps } from "sonner"
-import { CircleCheckIcon, InfoIcon, TriangleAlertIcon, OctagonXIcon, Loader2Icon } from "lucide-react"
+import { CircleCheckIcon, InfoIcon, TriangleAlertIcon, OctagonXIcon } from "lucide-react"
+import { Spinner } from "./spinner"
 
 type Theme = "light" | "dark" | "system";
 
@@ -24,7 +25,7 @@ const Toaster = ({ ...props }: ToasterProps) => {
         info: <InfoIcon className="size-4 text-amber-400/70" />,
         warning: <TriangleAlertIcon className="size-4 text-amber-400" />,
         error: <OctagonXIcon className="size-4 text-red-400" />,
-        loading: <Loader2Icon className="size-4 animate-spin text-amber-400/60" />,
+        loading: <Spinner size="sm" className="text-amber-400/60" />,
       }}
       style={
         {
