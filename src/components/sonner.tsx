@@ -1,6 +1,6 @@
 import * as React from "react";
-import { Toaster as Sonner, type ToasterProps } from "sonner"
-import { CircleCheckIcon, InfoIcon, TriangleAlertIcon, OctagonXIcon } from "lucide-react"
+import { Toaster as Sonner, toast, type ToasterProps } from "sonner"
+import { CircleCheck, InfoIcon, TriangleAlertIcon, OctagonXIcon } from "lucide-react"
 import { Spinner } from "./spinner"
 
 type Theme = "light" | "dark" | "system";
@@ -20,12 +20,16 @@ const Toaster = ({ ...props }: ToasterProps) => {
     <Sonner
       theme={theme as ToasterProps["theme"]}
       className="toaster group"
+      toastOptions={{
+        className: "!text-white",
+        descriptionClassName: "!text-white/80",
+      }}
       icons={{
-        success: <CircleCheckIcon className="size-4 text-amber-400" />,
-        info: <InfoIcon className="size-4 text-amber-400/70" />,
-        warning: <TriangleAlertIcon className="size-4 text-amber-400" />,
-        error: <OctagonXIcon className="size-4 text-red-400" />,
-        loading: <Spinner size="sm" className="text-amber-400/60" />,
+        success: <CircleCheck className="!size-4 text-emerald-400" />,
+        info: <InfoIcon className="!size-4 text-blue-400" />,
+        warning: <TriangleAlertIcon className="!size-4 text-amber-400" />,
+        error: <OctagonXIcon className="!size-4 text-red-400" />,
+        loading: <Spinner size="sm" className="!text-amber-400/60" />,
       }}
       style={
         {
@@ -49,4 +53,4 @@ const Toaster = ({ ...props }: ToasterProps) => {
   )
 }
 
-export { Toaster }
+export { Toaster, toast }
