@@ -4,6 +4,8 @@
 export * from "./components/accordion";
 export * from "./components/alert-dialog";
 export * from "./components/alert";
+export * from "./components/animated-placeholder-input";
+export * from "./components/ambient-orb-field";
 export * from "./components/avatar";
 export * from "./components/badge";
 export * from "./components/button-variants";
@@ -51,4 +53,5 @@ export * from "./components/tabs";
 export * from "./components/textarea";
 export * from "./components/toggle";
 export * from "./components/tooltip";
+export * from "./components/letter-wave";
 export { cn } from "./utils";
