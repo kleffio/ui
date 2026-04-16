@@ -22,6 +22,16 @@
   --input: oklch(1 0 0 / 12%);
   --ring: oklch(0.8 0.17 90 / 0.45);
   color-scheme: dark;
+
+  /* Semantic toast colors */
+  --toast-success-bg: oklch(0.17 0.018 145);
+  --toast-success-border: oklch(0.75 0.2 145 / 0.45);
+  --toast-info-bg: oklch(0.17 0.018 240);
+  --toast-info-border: oklch(0.68 0.2 240 / 0.45);
+  --toast-warning-bg: oklch(0.17 0.018 80);
+  --toast-warning-border: oklch(0.82 0.19 85 / 0.45);
+  --toast-error-bg: oklch(0.17 0.018 27);
+  --toast-error-border: oklch(0.63 0.24 27 / 0.55);
 }
 
 @theme inline {

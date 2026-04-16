@@ -33,18 +33,21 @@ const Toaster = ({ ...props }: ToasterProps) => {
       }}
       style={
         {
-          "--normal-bg": "oklch(0.16 0.008 55)",
+          "--normal-bg": "var(--card)",
           "--normal-text": "oklch(0.97 0 0)",
-          "--normal-border": "oklch(0.8 0.17 90 / 0.18)",
-          "--success-bg": "oklch(0.16 0.008 55)",
+          "--normal-border": "oklch(1 0 0 / 0.1)",
+          "--success-bg": "var(--toast-success-bg)",
           "--success-text": "oklch(0.97 0 0)",
-          "--success-border": "oklch(0.8 0.17 90 / 0.35)",
-          "--error-bg": "oklch(0.16 0.008 55)",
-          "--error-text": "oklch(0.97 0 0)",
-          "--error-border": "oklch(0.63 0.24 27 / 0.4)",
-          "--warning-bg": "oklch(0.16 0.008 55)",
+          "--success-border": "var(--toast-success-border)",
+          "--info-bg": "var(--toast-info-bg)",
+          "--info-text": "oklch(0.97 0 0)",
+          "--info-border": "var(--toast-info-border)",
+          "--warning-bg": "var(--toast-warning-bg)",
           "--warning-text": "oklch(0.97 0 0)",
-          "--warning-border": "oklch(0.8 0.17 90 / 0.35)",
+          "--warning-border": "var(--toast-warning-border)",
+          "--error-bg": "var(--toast-error-bg)",
+          "--error-text": "oklch(0.97 0 0)",
+          "--error-border": "var(--toast-error-border)",
           "--border-radius": "var(--radius)",
         } as React.CSSProperties
       }
