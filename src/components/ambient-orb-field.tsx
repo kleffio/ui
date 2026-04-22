@@ -120,19 +120,7 @@ function AmbientOrbField({
     timeoutsRef.current[index] = [returningTimer]
   }
 
-  function handlePop(index: number) {
-    if (orbStates[index] !== "active") {
-      return
-    }
 
-    setOrbStates((current) =>
-      current.map((state, currentIndex) =>
-        currentIndex === index ? "popped" : state
-      )
-    )
-
-    scheduleOrbReturn(index, ORB_REAPPEAR_DELAY_MS)
-  }
 
   return (
     <div aria-hidden="true" className={cn("ui-orb-field absolute inset-0 overflow-hidden", className)}>
@@ -140,14 +128,10 @@ function AmbientOrbField({
         const status = orbStates[index]
 
         return (
-          <button
+          <div
             key={`${orb.positionClassName}-${index}`}
-            type="button"
-            tabIndex={-1}
-            disabled={status !== "active"}
-            onClick={() => handlePop(index)}
             className={cn(
-              "ui-orb-shell absolute m-0 border-0 bg-transparent p-0 outline-none",
+              "ui-orb-shell absolute m-0 border-0 bg-transparent p-0 outline-none pointer-events-none",
               orb.positionClassName,
               status === "popped" && "ui-orb-shell--popped",
               status === "returning" && "ui-orb-shell--returning"
@@ -162,7 +146,7 @@ function AmbientOrbField({
                 } as React.CSSProperties
               }
             />
-          </button>
+          </div>
         )
       })}
       {showEdgeScrim && (
