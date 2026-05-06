@@ -1,6 +1,9 @@
 // @kleffio/ui — Kleff shared component library
 // Single source of truth for UI components used across panel, www, docs, and plugins.
 
+import "./components/glow-follow";
+export { clearGlowFollowPosition, installGlowFollow, setGlowFollowPosition } from "./components/glow-follow";
+
 export * from "./components/accordion";
 export * from "./components/alert-dialog";
 export * from "./components/alert";
@@ -23,6 +26,7 @@ export * from "./components/drawer";
 export * from "./components/dropdown-menu";
 export * from "./components/empty";
 export * from "./components/field";
+export * from "./components/glow-follow";
 export * from "./components/hover-card";
 export * from "./components/interactive-dot-field";
 export * from "./components/input";
