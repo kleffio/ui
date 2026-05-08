@@ -1,32 +1,32 @@
 import { cva, type VariantProps } from "class-variance-authority";
 
 export const buttonVariants = cva(
-  "group/button inline-flex shrink-0 items-center justify-center rounded-lg border border-transparent bg-clip-padding text-sm font-medium whitespace-nowrap transition-all outline-none select-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 active:scale-[0.98] disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+  "group/button inline-flex shrink-0 items-center justify-center rounded-lg border border-transparent bg-clip-padding text-sm font-medium whitespace-nowrap transition-all duration-200 outline-none select-none focus-visible:border-primary/50 focus-visible:ring-3 focus-visible:ring-primary/20 active:scale-[0.98] disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
   {
     variants: {
       variant: {
         default:
-          "bg-primary text-primary-foreground shadow-[0_2px_16px_oklch(0.80_0.17_90_/_0.30),0_1px_3px_rgba(0,0,0,0.3)] hover:bg-primary/90 hover:shadow-[0_4px_24px_oklch(0.80_0.17_90_/_0.42),0_1px_3px_rgba(0,0,0,0.3)]",
+          "rounded-full border-transparent bg-gradient-kleff text-primary-foreground shadow-[0_12px_27px_rgba(196,143,0,0.22)] hover:opacity-95",
         outline:
-          "border-white/[0.1] bg-white/[0.03] hover:bg-white/[0.07] hover:border-white/[0.15] hover:text-foreground",
+          "glass-surface border-white/10 text-white/80 shadow-[0_0_15px_rgba(255,255,255,0.03)] hover:border-white/[0.15] hover:bg-white/[0.07] hover:text-white",
         secondary:
-          "bg-white/[0.06] border border-white/[0.08] text-secondary-foreground hover:bg-white/[0.1]",
+          "border-white/[0.08] bg-white/[0.06] text-white/90 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] hover:border-white/[0.14] hover:bg-white/[0.1] hover:text-white",
         ghost:
-          "hover:bg-white/[0.06] hover:text-foreground",
+          "text-white/70 hover:bg-white/[0.06] hover:text-white",
         destructive:
-          "bg-destructive/10 border border-destructive/20 text-destructive hover:bg-destructive/20",
+          "border-destructive/25 bg-destructive/10 text-destructive shadow-[0_0_16px_oklch(0.63_0.24_27_/_0.12)] hover:border-destructive/[0.35] hover:bg-destructive/20 hover:shadow-[0_0_22px_oklch(0.63_0.24_27_/_0.20)]",
         link:
-          "text-primary underline-offset-4 hover:underline",
+          "text-primary underline-offset-4 hover:text-primary/[0.85] hover:drop-shadow-[0_0_8px_rgba(245,181,23,0.35)]",
       },
       size: {
-        default:  "h-8 gap-1.5 px-3",
+        default:  "h-9 gap-1.5 px-3.5",
         xs:       "h-6 gap-1 rounded-md px-2 text-xs [&_svg:not([class*='size-'])]:size-3",
-        sm:       "h-7 gap-1 rounded-md px-2.5 text-[0.8rem] [&_svg:not([class*='size-'])]:size-3.5",
+        sm:       "h-8 gap-1 rounded-md px-3 text-[0.8rem] [&_svg:not([class*='size-'])]:size-3.5",
         lg:       "h-10 gap-2 px-4 text-base",
-        icon:     "size-8",
+        icon:     "size-9",
         "icon-xs": "size-6 rounded-md [&_svg:not([class*='size-'])]:size-3",
-        "icon-sm": "size-7 rounded-md",
-        "icon-lg": "size-9",
+        "icon-sm": "size-8 rounded-md",
+        "icon-lg": "size-10",
       },
     },
     defaultVariants: { variant: "default", size: "default" },
