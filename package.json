@@ -49,6 +49,7 @@
     "./select": "./src/components/select.tsx",
     "./separator": "./src/components/separator.tsx",
     "./sheet": "./src/components/sheet.tsx",
+    "./shine-pill": "./src/components/shine-pill.tsx",
     "./skeleton": "./src/components/skeleton.tsx",
     "./slider": "./src/components/slider.tsx",
     "./sonner": "./src/components/sonner.tsx",

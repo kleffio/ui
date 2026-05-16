@@ -316,7 +316,7 @@
     z-index: 0;
     pointer-events: none;
     background: radial-gradient(
-      15rem circle at var(--glow-follow-x, 50%) var(--glow-follow-y, 50%),
+      15rem circle at var(--glow-follow-display-x, var(--glow-follow-x, 50%)) var(--glow-follow-display-y, var(--glow-follow-y, 50%)),
       rgba(245, 181, 23, 0.12),
       rgba(245, 181, 23, 0.045) 34%,
       transparent 68%
@@ -558,6 +558,153 @@
     -webkit-backdrop-filter: blur(14px);
   }
 
+  .ui-shine-pill {
+    position: relative;
+    display: inline-flex;
+    width: fit-content;
+    max-width: 100%;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border: 1px solid rgba(245, 181, 23, 0.24);
+    border-radius: 9999px;
+    background: rgba(245, 181, 23, 0.18);
+    padding: 0.45rem 1.05rem;
+    color: rgba(255, 244, 214, 0.9);
+    font-size: 0.78rem;
+    font-weight: 650;
+    line-height: 1.2;
+    text-align: center;
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.055) inset,
+      0 1px 0 rgba(255, 255, 255, 0.12) inset,
+      0 0 28px rgba(245, 181, 23, 0.16);
+    backdrop-filter: blur(16px) saturate(1.18);
+    -webkit-backdrop-filter: blur(16px) saturate(1.18);
+    isolation: isolate;
+  }
+
+  .ui-shine-pill::after {
+    content: "";
+    position: absolute;
+    inset-block: -80%;
+    left: -45%;
+    width: 38%;
+    border-radius: inherit;
+    background: linear-gradient(
+      100deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.08) 24%,
+      rgba(255, 255, 255, 0.78) 48%,
+      rgba(250, 215, 130, 0.42) 58%,
+      transparent 100%
+    );
+    filter: blur(1px);
+    opacity: 0.86;
+    transform: translate3d(-120%, 0, 0) rotate(10deg);
+    animation: ui-shine-pill-sweep 3.8s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+    pointer-events: none;
+  }
+
+  .ui-shine-pill__content {
+    position: relative;
+    z-index: 1;
+    white-space: nowrap;
+  }
+
+  .ui-shine-chip {
+    position: relative;
+    display: inline-flex;
+    max-width: 100%;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border: 1px solid rgba(245, 181, 23, 0.24);
+    border-radius: 9999px;
+    background: rgba(245, 181, 23, 0.12);
+    padding: 0.125rem 0.45rem;
+    color: rgba(255, 236, 185, 0.8);
+    font-size: 0.625rem;
+    font-weight: 650;
+    line-height: 1rem;
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.04) inset,
+      0 0 14px rgba(245, 181, 23, 0.08);
+    backdrop-filter: blur(12px) saturate(1.1);
+    -webkit-backdrop-filter: blur(12px) saturate(1.1);
+  }
+
+  .ui-shine-chip::after {
+    content: "";
+    position: absolute;
+    inset-block: -110%;
+    left: -55%;
+    width: 42%;
+    background: linear-gradient(
+      100deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.06) 24%,
+      rgba(255, 255, 255, 0.62) 48%,
+      rgba(250, 215, 130, 0.34) 58%,
+      transparent 100%
+    );
+    filter: blur(1px);
+    opacity: 0.74;
+    transform: translate3d(-125%, 0, 0) rotate(10deg);
+    animation: ui-shine-chip-sweep 4.2s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+    pointer-events: none;
+  }
+
+  .ui-shine-chip__content {
+    position: relative;
+    z-index: 1;
+    white-space: nowrap;
+  }
+
+  @media (max-width: 380px) {
+    .ui-shine-pill__content {
+      white-space: normal;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ui-shine-pill::after {
+      animation: none;
+      transform: translate3d(130%, 0, 0) rotate(10deg);
+    }
+
+    .ui-shine-chip::after {
+      animation: none;
+      transform: translate3d(130%, 0, 0) rotate(10deg);
+    }
+  }
+
+  @keyframes ui-shine-pill-sweep {
+
+    0%,
+    38% {
+      transform: translate3d(-130%, 0, 0) rotate(10deg);
+    }
+
+    70%,
+    100% {
+      transform: translate3d(520%, 0, 0) rotate(10deg);
+    }
+  }
+
+  @keyframes ui-shine-chip-sweep {
+
+    0%,
+    45% {
+      transform: translate3d(-125%, 0, 0) rotate(10deg);
+    }
+
+    76%,
+    100% {
+      transform: translate3d(470%, 0, 0) rotate(10deg);
+    }
+  }
+
   .component-showcase-stats {
     display: grid;
     grid-template-columns: 1fr;
@@ -633,6 +780,7 @@
     position: relative;
     display: flex;
     flex-direction: column;
+    padding: 1.25rem;
   }
 
   .component-showcase-section-title {
