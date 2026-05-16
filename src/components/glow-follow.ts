@@ -1,5 +1,17 @@
 const GLOW_FOLLOW_KEY = "__kleffioGlowFollowInstalled";
 const GLOW_FOLLOW_SELECTOR = ".overview-glass-card[data-frosted][data-spotlight=\"true\"]";
+const GLOW_FOLLOW_EASE = 0.055;
+const GLOW_FOLLOW_SETTLE_DISTANCE = 0.1;
+
+type GlowFollowState = {
+  currentX: number;
+  currentY: number;
+  targetX: number;
+  targetY: number;
+  frame: number | null;
+};
+
+const glowFollowStates = new WeakMap<HTMLElement, GlowFollowState>();
 
 declare global {
   interface Window {
@@ -21,9 +33,48 @@ export function setGlowFollowPosition(element: HTMLElement, clientX: number, cli
   const rect = element.getBoundingClientRect();
   const x = Math.max(0, Math.min(rect.width, clientX - rect.left));
   const y = Math.max(0, Math.min(rect.height, clientY - rect.top));
+  const state = glowFollowStates.get(element);
 
-  element.style.setProperty("--glow-follow-x", `${x}px`);
-  element.style.setProperty("--glow-follow-y", `${y}px`);
+  if (!state) {
+    glowFollowStates.set(element, {
+      currentX: x,
+      currentY: y,
+      targetX: x,
+      targetY: y,
+      frame: null,
+    });
+
+    element.style.setProperty("--glow-follow-x", `${x}px`);
+    element.style.setProperty("--glow-follow-y", `${y}px`);
+    return;
+  }
+
+  state.targetX = x;
+  state.targetY = y;
+
+  if (state.frame === null) {
+    state.frame = window.requestAnimationFrame(() => animateGlowFollow(element, state));
+  }
+}
+
+function animateGlowFollow(element: HTMLElement, state: GlowFollowState) {
+  const nextX = state.currentX + (state.targetX - state.currentX) * GLOW_FOLLOW_EASE;
+  const nextY = state.currentY + (state.targetY - state.currentY) * GLOW_FOLLOW_EASE;
+  const distanceX = Math.abs(state.targetX - nextX);
+  const distanceY = Math.abs(state.targetY - nextY);
+
+  state.currentX = distanceX < GLOW_FOLLOW_SETTLE_DISTANCE ? state.targetX : nextX;
+  state.currentY = distanceY < GLOW_FOLLOW_SETTLE_DISTANCE ? state.targetY : nextY;
+
+  element.style.setProperty("--glow-follow-x", `${state.currentX}px`);
+  element.style.setProperty("--glow-follow-y", `${state.currentY}px`);
+
+  if (state.currentX === state.targetX && state.currentY === state.targetY) {
+    state.frame = null;
+    return;
+  }
+
+  state.frame = window.requestAnimationFrame(() => animateGlowFollow(element, state));
 }
 
 export function clearGlowFollowPosition(element: HTMLElement) {
